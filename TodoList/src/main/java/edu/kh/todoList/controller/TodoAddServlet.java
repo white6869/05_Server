@@ -12,8 +12,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/todo/add")
-public class TodoAddServlet extends HttpServlet {
-	
+public class TodoAddServlet extends HttpServlet{
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
@@ -22,10 +22,10 @@ public class TodoAddServlet extends HttpServlet {
 			// 1. TodoListServiceImpl 객체 생성
 			TodoListService service = new TodoListServiceImpl();
 			
-			// 2. 요청시 전달받은 파라미터 데이터 얻어오기
-			String title = req.getParameter("title");  // 제목
-			String detail = req.getParameter("detail");  // 상세내용
-
+			// 2. 요청 시 전달받은 파라미터 데이터 얻어오기
+			String title = req.getParameter("title");   // 제목
+			String detail = req.getParameter("detail"); // 상세내용
+			
 			// 3. 서비스 호출 후 결과 반환받기
 			int result = service.todoAdd(title, detail);
 			
@@ -45,11 +45,12 @@ public class TodoAddServlet extends HttpServlet {
 			// -> "/" 처리하는 Servlet/JSP 재요청
 			// -> redirect는 무조건 GET 방식!
 			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		
-		
 	}
+	
 }
